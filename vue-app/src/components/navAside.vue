@@ -37,7 +37,7 @@ export default {
 
 <style lang="scss" scoped>
 .nav-aside{
-  position: relative; padding-top: 1rem;
+  position: relative; padding-top: 1rem; background-color: #fff; height: 100vh;
   .menu-burger{
     top: 1rem; inset-inline-start: 1rem;
   }

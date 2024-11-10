@@ -6,22 +6,31 @@
         Common Name
       </th>
       <th>
-        Official Name
+        <img src="../assets/images/arrow_downward_alt.svg" alt="arrow down icon">
+        <span>Official Name</span>
       </th>
       <th>
-        Capital
+        <img src="../assets/images/arrow_downward_alt.svg" alt="arrow down icon">
+        <span>Capital</span>
       </th>
       <th>
-        Region
+        <img src="../assets/images/arrow_downward_alt.svg" alt="arrow down icon">
+        <span>Region</span>
       </th>
       <th>
-        Population
+        <img src="../assets/images/arrow_downward_alt.svg" alt="arrow down icon">
+        <span>Population</span>
       </th>
       <th>
-        Official Languages
+        <img src="../assets/images/arrow_downward_alt.svg" alt="arrow down icon">
+        <span>Official Languages</span>
       </th>
       <th>
-        Time Zone
+        <img src="../assets/images/arrow_downward_alt.svg" alt="arrow down icon">
+        <span>Time Zone</span>
+      </th>
+      <th>
+        <img src="../assets/images/arrow_downward_alt.svg" alt="arrow down icon">
       </th>
     </tr>
     </thead>
@@ -29,21 +38,48 @@
     <tr v-for="country in countriesData"
         :key="country.id"
         @click="openInGoogleMaps(country.capital)"
-        style="cursor: pointer;"
         tabindex="0"
+        class="body-row"
     >
       <td :data-label="country.common_name">
         <div class="country-name-wrap">
+          <img src="../assets/images/star.svg" alt="star icon">
           <img :src="country.flag" alt="flag icon" class="icon-flag">
-          {{ country.common_name }}
+          <span class="text">
+            {{ country.common_name }}
+          </span>
         </div>
       </td>
-      <td :data-label="country.official_name">{{ country.official_name }}</td>
-      <td :data-label="country.capital">{{ country.capital }}</td>
-      <td :data-label="country.region">{{ country.region }}</td>
-      <td :data-label="country.population">{{ country.population }}</td>
-      <td :data-label="country.official_language">{{ country.official_language }}</td>
-      <td :data-label="country.time_zone">{{ country.time_zone }}</td>
+      <td :data-label="country.official_name">
+        <span class="text">
+          {{ country.official_name }}
+        </span>
+      </td>
+      <td :data-label="country.capital">
+        <span class="text">
+          {{ country.capital }}
+        </span>
+      </td>
+      <td :data-label="country.region">
+        <span class="text">
+          {{ country.region }}
+        </span>
+      </td>
+      <td :data-label="country.population" class="population">
+        <span class="text">
+           {{ formatNumber(country.population) }}
+        </span>
+      </td>
+      <td :data-label="country.official_language">
+        <span class="text">
+          {{ country.official_language }}
+        </span>
+      </td>
+      <td :data-label="country.time_zone">
+        <span class="text">
+          {{ country.time_zone }}
+        </span>
+      </td>
     </tr>
     </tbody>
   </table>
@@ -63,43 +99,56 @@ export default {
     openInGoogleMaps(capital){
       const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(capital)}`
       window.open(url, '_blank');
+    },
+    formatNumber(value){
+      if(value >= 1000000){
+        return(value / 1000000).toFixed(1) + 'M';
+      }else if(value >= 1000){
+        return (value / 1000).toFixed(1) + 'K';
+      }
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-table {
-  border: 1px solid #ccc;
-  border-collapse: collapse;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  table-layout: fixed;
+@use "../assets/styles/fonts" as *;
+.table-countries{
+  background-color: #fff; margin: 0; padding: 0; width: 100%; table-layout: fixed;
+  border: none; margin-top: 1rem;
+  th, td{
+    text-align: start; padding: 0.8rem;
+    font-size: 1.2rem; font-family: $font-family;
+  }
+
+  th{
+    line-height: 1.1; font-weight: 500; color: #9CA3AF;
+    border-bottom: 1px solid #ddd;
+    img{vertical-align: bottom; margin-inline-end: 0.5rem;}
+  }
+  .body-row{
+    cursor: pointer;
+    &:hover{
+      background-color: #d9dadb;
+    }
+    &:not(:last-child){border-bottom: 1px solid #ddd;}
+    td{
+      font-weight: $normal;
+      &:not(:first-child){
+        padding-inline-start: 3rem;
+      }
+      .text{line-height: 1.2;}
+    }
+  }
+  .population{
+    .text{
+      border: 1px solid #2E5BFF; color: #2E5BFF; padding: 0.3rem;
+      width: 65px; height: 20px; display: block; text-align: center;
+
+    }
+  }
 }
 
-table caption {
-  font-size: 1.5em;
-  margin: .5em 0 .75em;
-}
-
-table tr {
-  background-color: #f8f8f8;
-  border: 1px solid #ddd;
-  padding: .35em;
-}
-
-table th,
-table td {
-  padding: .625em;
-  text-align: start;
-}
-
-table th {
-  font-size: .85em;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-}
 .icon-flag{
   width: 20px; height: 20px; border-radius: 50%;
 }

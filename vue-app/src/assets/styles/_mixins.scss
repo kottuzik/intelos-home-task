@@ -1,0 +1,13 @@
+@mixin scrollbar($width: 10px, $background: #bfbfbf, $track-bg: #f1f1f1, $thumb-bg: #c1c1c1){
+  overflow-y: auto;
+  &::-webkit-scrollbar {width: $width;}
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: $track-bg;
+  }
+  /* Handle */
+  &::-webkit-scrollbar-thumb {background: $thumb-bg; border-radius: 4px;}
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {background: $background;}
+}

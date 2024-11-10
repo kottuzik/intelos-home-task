@@ -1,4 +1,11 @@
+@use "fonts" as *;
+@use "mixins" as *;
+
 :root{font-size: 10px;}
 body{
-  background-color: #F2F2F3;
+  background-color: #F2F2F3; font-family: $font-family;
+  @include scrollbar();
+}
+.light-border{
+  border: 1px solid #D1D5DB;
 }
