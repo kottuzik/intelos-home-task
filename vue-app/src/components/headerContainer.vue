@@ -38,8 +38,8 @@ export default {
 <style lang="scss" scoped>
 @use "../assets/styles/variables" as *;
   .header{
-    display: flex; justify-content: space-between;
-    flex-wrap: wrap; padding-top: 1.5rem;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+    padding-top: 1.5rem;
     .search-wrap{
       display: flex; align-items: center; gap: 0.5rem; padding-inline-start: 0.5rem; border-radius: $border-radius;
       max-width: 300px; width: 100%; background-color: #D1D5DB; height: 28px;
