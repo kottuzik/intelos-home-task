@@ -1,4 +1,4 @@
-@mixin scrollbar($width: 10px, $background: #bfbfbf, $track-bg: #f1f1f1, $thumb-bg: #c1c1c1){
+@mixin scrollbar($width: 8px, $background: #bfbfbf, $track-bg: #f1f1f1, $thumb-bg: #c1c1c1){
   overflow-y: auto;
   &::-webkit-scrollbar {width: $width;}
   /* Track */

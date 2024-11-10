@@ -28,13 +28,17 @@ export default {
 <style lang="scss" scoped>
 @use "../assets/styles/fonts" as *;
 @use "../assets/styles/variables" as *;
+@use "../assets/styles/mixins" as *;
+
   .table-wrapper{
-    background-color: #fff; padding: 1rem;
+    background-color: #fff; padding: 1rem; padding-top: 0;
+    @include scrollbar(); height: calc(100vh - 80px);
     .title{
       font-size: 1.8rem; font-weight: $bold;
     }
     &-header{
       display: flex; justify-content: space-between; flex-wrap: wrap;
+      position: sticky; top: 0; background-color: #fff; padding-top: 1rem;
       .pagination{
         display: flex; gap: 5px; height: 28px;
         *{

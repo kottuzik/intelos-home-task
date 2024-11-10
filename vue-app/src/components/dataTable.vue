@@ -126,8 +126,9 @@ export default {
 <style lang="scss" scoped>
 @use "../assets/styles/fonts" as *;
 @use "../assets/styles/variables" as *;
+
 .table-countries{
-   margin: 0; padding: 0; width: 100%; table-layout: fixed;
+  margin: 0; padding: 0; width: 100%; table-layout: fixed;
   border: none; margin-top: 1rem;
   th, td{
     text-align: start; padding: 0.8rem;
