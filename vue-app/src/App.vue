@@ -1,26 +1,27 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <main class="main-container">
+    <section class="inner-container">
+      <nav-aside/>
+      <data-table/>
+    </section>
+  </main>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
+
+import DataTable from "@/components/dataTable";
+import NavAside from "@/components/navAside";
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    NavAside,
+    DataTable
+
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+ @use "assets/styles/index";
 </style>
