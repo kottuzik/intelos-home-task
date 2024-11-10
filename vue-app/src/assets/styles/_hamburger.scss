@@ -1,22 +1,9 @@
-@use "breakpoints" as *;
-#openMenu{display: none;}
 .menu-burger{
   position: absolute;
-  width: 2.5rem; height: 2rem; inset-inline-start: 0.2rem; top: 0;
+  width: 2.4rem; height: 2.2rem;
   display: flex; justify-content: space-between; flex-direction: column;
   > span{
     height: 3px; background-color: #434242; transition: 0.5s; z-index: 999; border-radius: 2px;
   }
 }
-@media screen and #{$break2open}{
-  .menu-burger{cursor: pointer;}
-  #openMenu:checked ~ .menu-burger > span:nth-child(1){
-    transform: translateY(12px) rotate(45deg);
-  }
-  #openMenu:checked ~ .menu-burger > span:nth-child(2){
-    opacity: 0;
-  }
-  #openMenu:checked ~ .menu-burger > span:nth-child(3){
-    transform: translateY(-5px) rotate(-45deg);
-  }
-}
+
