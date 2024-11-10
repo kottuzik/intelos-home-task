@@ -1,7 +1,12 @@
 <template>
   <section class="table-wrapper">
     <header class="table-wrapper-header">
-
+      <h2 class="title">Countries</h2>
+      <div class="pagination">
+        <div class="arrow-back"></div>
+        <input type="number" min="1" max="10" name="pages">
+        <div class="arrow-next"></div>
+      </div>
     </header>
   </section>
 </template>
@@ -13,5 +18,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .table-wrapper{}
+  .table-wrapper{
+    background-color: #fff;
+  }
 </style>
